@@ -1,9 +1,9 @@
 # makara_porfolio
 
-A new Flutter project.
-Here is my screen
-![Alt text](assets/screen1.jpg)
-![Alt text](assets/screen2.jpg)
+<p align="center">
+  <img src="assets/screen1.jpg" alt="Screen 1" width="45%"/>
+  <img src="assets/screen2.jpg" alt="Screen 2" width="45%"/>
+</p>
 
 ## Getting Started
 
