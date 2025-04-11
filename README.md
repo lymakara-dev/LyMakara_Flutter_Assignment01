@@ -1,6 +1,9 @@
 # makara_porfolio
 
 A new Flutter project.
+Here is my screen
+![Alt text](assets/screen1.jpg)
+![Alt text](assets/screen2.jpg)
 
 ## Getting Started
 
