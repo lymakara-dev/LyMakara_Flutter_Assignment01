@@ -9,6 +9,14 @@
 
 This project is a starting point for a Flutter application.
 
+## Feature about the app
+
+- Navbar have logo and huberger button
+- A pofile picture in the middle
+- A few text align center of the screen
+- Button ```Hire Me``` will direct to my telegram contact
+- Button ```Download CV``` will download my CV
+
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
