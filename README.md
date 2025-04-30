@@ -1,8 +1,8 @@
 # Authentication Screen
 
 <p align="center">
-  <img src="assets/login.jpg" alt="Login Screen" width="45%"/>
-  <img src="assets/register.jpg" alt="Register Screen" width="45%"/>
+  <img src="assets/login.png" alt="Login Screen" width="45%"/>
+  <img src="assets/register.png" alt="Register Screen" width="45%"/>
 </p>
 
 ## Overview
