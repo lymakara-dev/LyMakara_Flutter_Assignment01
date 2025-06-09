@@ -19,9 +19,36 @@ class _MyAppState extends State<MyApp> {
   String _language = 'en';
 
   final Map<String, Map<String, String>> localizedStrings = {
-    'en': {'greeting': 'Hello!'},
-    'fr': {'greeting': 'Salut!'},
-    'kh': {'greeting': 'សួស្តី!'},
+    'en': {
+      'greeting': 'Hello!',
+      'login': 'Log in',
+      'username': 'Username',
+      'password': 'Password',
+      'loginButton': 'Log in',
+      'darkMode': 'Dark Mode',
+      'emptyFields': 'Please enter both username and password',
+      'loginSuccess': 'Login successful',
+    },
+    'fr': {
+      'greeting': 'Salut!',
+      'login': 'Se connecter',
+      'username': 'Nom d\'utilisateur',
+      'password': 'Mot de passe',
+      'loginButton': 'Se connecter',
+      'darkMode': 'Mode sombre',
+      'emptyFields': 'Veuillez saisir le nom d\'utilisateur et le mot de passe',
+      'loginSuccess': 'Connexion réussie',
+    },
+    'kh': {
+      'greeting': 'សួស្តី!',
+      'login': 'ចូល',
+      'username': 'ឈ្មោះអ្នកប្រើ',
+      'password': 'ពាក្យសម្ងាត់',
+      'loginButton': 'ចូល',
+      'darkMode': 'របៀបងងឹត',
+      'emptyFields': 'សូមបញ្ចូលឈ្មោះអ្នកប្រើនិងពាក្យសម្ងាត់',
+      'loginSuccess': 'ការចូលជោគជ័យ',
+    },
   };
 
   @override
@@ -66,7 +93,7 @@ class _MyAppState extends State<MyApp> {
       home: LoginScreen(
         isDarkMode: _themeMode == ThemeMode.dark,
         currentLanguage: _language,
-        greeting: localizedStrings[_language]!['greeting']!,
+        translations: localizedStrings[_language]!,
         onThemeChanged: _updateTheme,
         onLanguageChanged: _updateLanguage,
       ),

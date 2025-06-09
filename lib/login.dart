@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class LoginScreen extends StatefulWidget {
   final bool isDarkMode;
   final String currentLanguage;
-  final String greeting;
+  final Map<String, String> translations;
   final Function(bool) onThemeChanged;
   final Function(String) onLanguageChanged;
 
@@ -12,7 +12,7 @@ class LoginScreen extends StatefulWidget {
     super.key,
     required this.isDarkMode,
     required this.currentLanguage,
-    required this.greeting,
+    required this.translations,
     required this.onThemeChanged,
     required this.onLanguageChanged,
   });
@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Log in',
+                widget.translations['login']!,
                 style: const TextStyle(
                   color: Colors.orange,
                   fontSize: 28,
@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SvgPicture.asset('assets/flags/en.svg', height: 30),
             Center(
               child: Text(
-                widget.greeting,
+                widget.translations['greeting'] ?? 'Hello',
                 style: const TextStyle(
                   fontSize: 20,
                   color: Colors.orange,
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
             TextField(
               controller: _usernameController,
               decoration: InputDecoration(
-                labelText: 'Username',
+                labelText: widget.translations['username']!,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -112,9 +112,8 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 16),
             TextField(
               controller: _passwordController,
-              obscureText: true,
               decoration: InputDecoration(
-                labelText: 'Password',
+                labelText: widget.translations['password']!,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -133,9 +132,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           if (username.isEmpty || password.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                 content: Text(
-                                  'Please enter both username and password',
+                                  widget.translations['emptyFields']!,
                                 ),
                               ),
                             );
@@ -143,7 +142,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             // Add delay to simulate network request
                             await Future.delayed(const Duration(seconds: 1));
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Login successful')),
+                              SnackBar(
+                                content: Text(
+                                  widget.translations['loginSuccess']!,
+                                ),
+                              ),
                             );
                           }
                         } finally {
@@ -157,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: 20,
                         child: CircularProgressIndicator(color: Colors.white),
                       )
-                      : const Text('Log in'),
+                      : Text(widget.translations['loginButton']!),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.orange,
                 foregroundColor: Colors.white,
@@ -196,7 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SwitchListTile(
               value: widget.isDarkMode,
               onChanged: widget.onThemeChanged,
-              title: const Text('Dark Mode'),
+              title: Text(widget.translations['darkMode']!),
             ),
           ],
         ),
